@@ -1,6 +1,7 @@
 <?php
 
 use admin\components\widgets\detailView\Column;
+use admin\components\widgets\detailView\ColumnImage;
 use admin\modules\rbac\components\RbacHtml;
 use common\components\helpers\UserUrl;
 use common\models\NewsSearch;
@@ -49,8 +50,8 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'en_description']),
             Column::widget(['attr' => 'text']),
             Column::widget(['attr' => 'en_text']),
-            Column::widget(['attr' => 'image']),
-            Column::widget(['attr' => 'status', 'item' => \admin\enums\PublishedStatus::class]),
+            ColumnImage::widget(['attr' => 'image']),
+            Column::widget(['attr' => 'status', 'items' => \admin\enums\PublishedStatus::class]),
 
         ]
     ]) ?>

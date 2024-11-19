@@ -25,14 +25,14 @@ use yii\helpers\ArrayHelper;
 class News extends AppActiveRecord
 {
 
-    public function behaviors(): array
-    {
-        return [
-            'timestamp' => [
-                'class' => TimestampBehavior::class,
-            ],
-        ];
-    }
+//    public function behaviors(): array
+//    {
+//        return [
+//            'timestamp' => [
+//                'class' => TimestampBehavior::class,
+//            ],
+//        ];
+//    }
 
     /**
      * {@inheritdoc}
@@ -62,13 +62,13 @@ class News extends AppActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
-            'en_title' => Yii::t('app', 'En Title'),
-            'API_priority' => Yii::t('app', 'Api Priority'),
+            'en_title' => Yii::t('app', 'English Title'),
+            'API_priority' => Yii::t('app', 'API Priority'),
             'date' => Yii::t('app', 'Date'),
             'description' => Yii::t('app', 'Description'),
-            'en_description' => Yii::t('app', 'En Description'),
+            'en_description' => Yii::t('app', 'English Description'),
             'text' => Yii::t('app', 'Text'),
-            'en_text' => Yii::t('app', 'En Text'),
+            'en_text' => Yii::t('app', 'English Text'),
             'image' => Yii::t('app', 'Image'),
             'status' => Yii::t('app', 'Status'),
         ];

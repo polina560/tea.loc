@@ -15,7 +15,7 @@ use yii\widgets\ListView;
  * @var $model        common\models\Tea
  */
 
-$this->title = Yii::t('app', 'Teas');
+$this->title = Yii::t('app', 'Tea');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tea-index">

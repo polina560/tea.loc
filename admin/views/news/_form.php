@@ -39,7 +39,7 @@ use yii\helpers\Url;
 
     <?php ?>
 
-    <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
+<!--    --><?php //= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->widget(
         Select2::class,

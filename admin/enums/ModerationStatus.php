@@ -34,7 +34,7 @@ enum ModerationStatus: int implements DictionaryInterface
         return match ($this) {
             self::moderation_new => 'var(--bs-body-color)',
             self::moderation_accepted => 'var(--bs-success)',
-            self::moderation_rejected => 'var(--bs-success)',
+            self::moderation_rejected => 'var(--bs-danger)',
         };
     }
 }

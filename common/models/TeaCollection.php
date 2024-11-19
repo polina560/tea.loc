@@ -50,9 +50,9 @@ class TeaCollection extends AppActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
-            'en_title' => Yii::t('app', 'En Title'),
+            'en_title' => Yii::t('app', 'English Title'),
             'subtitle' => Yii::t('app', 'Subtitle'),
-            'en_subtitle' => Yii::t('app', 'En Subtitle'),
+            'en_subtitle' => Yii::t('app', 'English Subtitle'),
             'color' => Yii::t('app', 'Color'),
             'image' => Yii::t('app', 'Image'),
         ];

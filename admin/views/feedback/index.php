@@ -16,19 +16,19 @@ use yii\widgets\ListView;
  * @var $model        common\models\Feedback
  */
 
-$this->title = Yii::t('app', 'Feedbacks');
+$this->title = Yii::t('app', 'Feedback');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="feedback-index">
 
     <h1><?= RbacHtml::encode($this->title) ?></h1>
 
-    <div>
-        <?=
-            RbacHtml::a(Yii::t('app', 'Create Feedback'), ['create'], ['class' => 'btn btn-success']);
-//           $this->render('_create_modal', ['model' => $model]);
-        ?>
-    </div>
+<!--    <div>-->
+<!--        --><?php //=
+//            RbacHtml::a(Yii::t('app', 'Create Feedback'), ['create'], ['class' => 'btn btn-success']);
+////           $this->render('_create_modal', ['model' => $model]);
+//        ?>
+<!--    </div>-->
 
     <?= SortableGridView::widget([
         'dataProvider' => $dataProvider,
@@ -54,6 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
             Column::widget(['attr' => 'comment']),
 
             ['class' => GroupedActionColumn::class,
+                    'buttons' => [
+                        'delete' => function () {
+                                return null;
+                            }
+                    ]
+
 
             ]
         ]

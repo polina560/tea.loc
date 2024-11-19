@@ -24,17 +24,17 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
 
     <p>
         <?= RbacHtml::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= RbacHtml::a(
-            Yii::t('app', 'Delete'),
-            ['delete', 'id' => $model->id],
-            [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                    'method' => 'post'
-                ]
-            ]
-        ) ?>
+<!--        --><?php //= RbacHtml::a(
+//            Yii::t('app', 'Delete'),
+//            ['delete', 'id' => $model->id],
+//            [
+//                'class' => 'btn btn-danger',
+//                'data' => [
+//                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+//                    'method' => 'post'
+//                ]
+//            ]
+//        ) ?>
     </p>
 
     <?= DetailView::widget([
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'message']),
             Column::widget(['attr' => 'created_at', 'format' => 'datetime']),
             Column::widget(['attr' => 'updated_at', 'format' => 'datetime']),
-            Column::widget(['attr' => 'moderation_status', 'item' => \admin\enums\ModerationStatus::class]),
+            Column::widget(['attr' => 'moderation_status', 'items' => \admin\enums\ModerationStatus::class]),
 //            [
 //                'attribute'=>'moderation_status',
 //                'value'=>function($model){

@@ -37,17 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => SerialColumn::class],
 
             Column::widget(),
-            Column::widget(['attr' => 'title']),
+            Column::widget(['attr' => 'title', 'editable' => false]),
 //            Column::widget(['attr' => 'en_title']),
 //            Column::widget(['attr' => 'API_priority']),
-            Column::widget(['attr' => 'date']),
+            Column::widget(['attr' => 'date', 'format' => 'datetime', 'editable' => false]),
             Column::widget(['attr' => 'description']),
 //            Column::widget(['attr' => 'en_description']),
 //            Column::widget(['attr' => 'text']),
 //            Column::widget(['attr' => 'en_text']),
 //            Column::widget(['attr' => 'image']),
-            ColumnSelect2::widget(['attr' => 'status', 'items' => \admin\enums\PublishedStatus::class, 'hideSearch' => true]),
-
+//            Column::widget(['attr' => 'status']),
+            ColumnSelect2::widget(['attr' => 'status','items' => \admin\enums\PublishedStatus::class, 'hideSearch' => true]),
 
             ['class' => GroupedActionColumn::class]
         ]

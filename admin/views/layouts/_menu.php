@@ -44,9 +44,14 @@ if (!Yii::$app->user->isGuest) {
             'label' => Yii::t('app', 'Tea Collections'),
             'items' => TeaCollection::viewMenuItems(),
         ],
+
         [
             'label' => Yii::t('app', 'Tea'),
             'url' => UserUrl::setFilters(Tea::class, ['/tea/index'])
+        ],
+        [
+            'label' => Yii::t('app', 'All Collections'),
+            'url' => UserUrl::setFilters(TeaCollection::class, ['/tea-collection/index'])
         ],
         [
             'label' => Yii::t('app', 'News'),

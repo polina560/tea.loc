@@ -171,4 +171,45 @@ return [
     'Download Link' => 'Ссылка на скачивание',
     'Count' => 'Кол-во',
     'Date' => 'Дата',
+
+    'Feedback' => 'Обратная связь',
+    'News' => 'Новости',
+    'Tea Collections' => 'Чайная коллекция',
+    'All Collections' => 'Все чайные коллекции',
+    'Tea' => 'Чай',
+    'Create Tea' => 'Добавить чай',
+    '' => '',
+    '' => '',
+    'Create Tea Collection' => 'Добавить чайную коллецию',
+    'Create News' => 'Добавить новость',
+    'Update: ' => 'Обновить: ',
+
+
+    'Message' => 'Сообщение',
+    'Moderation Status' => 'Статус модерации',
+    'Comment' => 'Комментарий',
+    'English Title' => 'Название на английском',
+    'API Priority' => 'API приоритет',
+    'English Description' => 'Описание на английском',
+    'English Text' => 'Текст на английском',
+    'Image' => 'Изображение',
+    'Color' => 'Цвет',
+    'Subtitle' => 'Подзаголовок',
+    'English Subtitle' => 'Подзаголовок на английском',
+    'ID Collection' => 'ID Коллекции',
+    'Background Image' => 'Изображение заднего фона',
+    'English Image' => 'Картинка на английском',
+    'Weight' => 'Вес',
+    'English Weight' => 'Английский вес',
+    'Brewing Temperature' => 'Температура заваривания',
+    'English Brewing Temperature' => 'Английская температура заваривания',
+    'Brewing Time' => 'Время заваривания',
+    'English Brewing Time' => 'Английское время заваривания',
+    'Buy Button' => 'Кнопка купить',
+    'Shop Link' => 'Ссылка',
+    'English Shop Link' => 'Английская ссылка',
+    
+
+
+
 ];

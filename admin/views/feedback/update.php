@@ -9,11 +9,9 @@ use yii\bootstrap5\Html;
  * @var $model common\models\Feedback
  */
 
-$this->title = Yii::t('app', 'Update Feedback: {name}', [
-    'name' => $model->name,
-]);
+$this->title = Yii::t('app', 'Update: ') . $model->name;
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', 'Feedbacks'),
+    'label' => Yii::t('app', 'Feedback'),
     'url' => UserUrl::setFilters(FeedbackSearch::class)
 ];
 $this->params['breadcrumbs'][] = ['label' => Html::encode($model->name), 'url' => ['view', 'id' => $model->id]];

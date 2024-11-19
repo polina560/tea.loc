@@ -26,7 +26,8 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'en_subtitle')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'color')->textInput(['maxlength' => true]) ?>
+<!--    --><?php //= $form->field($model, 'color')->widget(\admin\widgets\colorbox\Colorbox::class)
+//    textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'image')->widget(CKFinderInputFile::class) ?>
 

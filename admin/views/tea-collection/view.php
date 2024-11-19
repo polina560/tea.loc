@@ -1,6 +1,7 @@
 <?php
 
 use admin\components\widgets\detailView\Column;
+use admin\components\widgets\detailView\ColumnImage;
 use admin\modules\rbac\components\RbacHtml;
 use common\components\helpers\UserUrl;
 use common\models\TeaCollectionSearch;
@@ -46,7 +47,7 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'subtitle']),
             Column::widget(['attr' => 'en_subtitle']),
             Column::widget(['attr' => 'color']),
-            Column::widget(['attr' => 'image']),
+            ColumnImage::widget(['attr' => 'image']),
         ]
     ]) ?>
 

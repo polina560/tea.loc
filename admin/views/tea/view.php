@@ -1,6 +1,7 @@
 <?php
 
 use admin\components\widgets\detailView\Column;
+use admin\components\widgets\detailView\ColumnImage;
 use admin\modules\rbac\components\RbacHtml;
 use common\components\helpers\UserUrl;
 use common\models\TeaSearch;
@@ -13,7 +14,7 @@ use yii\widgets\DetailView;
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', 'Teas'),
+    'label' => Yii::t('app', 'Tea'),
     'url' => UserUrl::setFilters(TeaSearch::class)
 ];
 $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
@@ -47,10 +48,10 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'subtitle']),
             Column::widget(['attr' => 'en_subtitle']),
             Column::widget(['attr' => 'description']),
-            Column::widget(['attr' => 'en_description']),
-            Column::widget(['attr' => 'background_image']),
-            Column::widget(['attr' => 'image']),
-            Column::widget(['attr' => 'en_image']),
+            ColumnImage::widget(['attr' => 'en_description']),
+            ColumnImage::widget(['attr' => 'background_image']),
+            ColumnImage::widget(['attr' => 'image']),
+            ColumnImage::widget(['attr' => 'en_image']),
             Column::widget(['attr' => 'weight']),
             Column::widget(['attr' => 'en_weight']),
             Column::widget(['attr' => 'brewing_temperature']),

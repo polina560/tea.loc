@@ -11,7 +11,7 @@ use yii\bootstrap5\Html;
 
 $this->title = Yii::t('app', 'Create Tea');
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', 'Teas'),
+    'label' => Yii::t('app', 'Tea'),
     'url' => UserUrl::setFilters(TeaSearch::class)
 ];
 $this->params['breadcrumbs'][] = $this->title;

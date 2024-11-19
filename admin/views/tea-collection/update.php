@@ -9,9 +9,7 @@ use yii\bootstrap5\Html;
  * @var $model common\models\TeaCollection
  */
 
-$this->title = Yii::t('app', 'Update Tea Collection: {name}', [
-    'name' => $model->title,
-]);
+$this->title = Yii::t('app', 'Update: ') . $model->title;
 $this->params['breadcrumbs'][] = [
     'label' => Yii::t('app', 'Tea Collections'),
     'url' => UserUrl::setFilters(TeaCollectionSearch::class)

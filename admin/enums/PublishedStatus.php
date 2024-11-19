@@ -30,8 +30,8 @@ enum PublishedStatus: int implements DictionaryInterface
     public function color(): string
     {
         return match ($this) {
-            self::published_yes => 'var(--bs-body-color)',
-            self::published_no => 'var(--bs-success)',
+            self::published_yes => 'var(--bs-success)',
+            self::published_no => 'var(--bs-danger)',
         };
     }
 }
