@@ -3,6 +3,8 @@
 namespace common\models;
 
 use common\models\AppActiveRecord;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
@@ -35,6 +37,13 @@ use yii\web\UploadedFile;
  *
  * @property-read TeaCollection $collection
  */
+
+#[Schema(properties: [
+    new Property(property: 'id', type: 'integer'),
+    new Property(property: 'title', type: 'string'),
+    new Property(property: 'subtitle', type: 'string'),
+    new Property(property: 'image', type: 'string'),
+])]
 class Tea extends AppActiveRecord
 {
     /**
@@ -58,8 +67,63 @@ class Tea extends AppActiveRecord
         return [
             [['title', 'en_title'], 'required'],
             [['id_collection', 'buy_button', 'API_priority'], 'integer'],
-            [['title', 'en_title', 'subtitle', 'en_subtitle', 'description', 'en_description', 'background_image', 'image', 'en_image', 'weight', 'en_weight', 'brewing_temperature', 'en_brewing_temperature', 'brewing_time', 'en_brewing_time', 'shop_link', 'en_shop_link'], 'string', 'max' => 255],
-            [['id_collection'], 'exist', 'skipOnError' => true, 'targetClass' => TeaCollection::class, 'targetAttribute' => ['id_collection' => 'id']]
+            [
+                [
+                    'title',
+                    'en_title',
+                    'subtitle',
+                    'en_subtitle',
+                    'description',
+                    'en_description',
+                    'background_image',
+                    'image',
+                    'en_image',
+                    'weight',
+                    'en_weight',
+                    'brewing_temperature',
+                    'en_brewing_temperature',
+                    'brewing_time',
+                    'en_brewing_time',
+                    'shop_link',
+                    'en_shop_link'
+                ],
+                'string',
+                'max' => 255
+            ],
+            [
+                ['id_collection'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => TeaCollection::class,
+                'targetAttribute' => ['id_collection' => 'id']
+            ]
+        ];
+    }
+
+    final public function fields(): array
+    {
+        return [
+                'id',
+                'title',
+//                'en_title',
+               'id_collection',
+                'subtitle',
+//                'en_subtitle',
+//                'description',
+//                'en_description',
+//                'background_image',
+                'image',
+//                'en_image',
+//                'weight',
+//                'en_weight',
+//                'brewing_temperature',
+//                'en_brewing_temperature',
+//                ',brewing_time',
+//                'en_brewing_time',
+//                'buy_button',
+//                'shop_link',
+//                'en_shop_link',
+//                'API_priority',
         ];
     }
 
@@ -92,7 +156,6 @@ class Tea extends AppActiveRecord
             'API_priority' => Yii::t('app', 'API Priority'),
         ];
     }
-
 
 
     final public function getCollection(): ActiveQuery

@@ -4,6 +4,8 @@ namespace common\models;
 
 use common\components\helpers\UserUrl;
 use common\models\AppActiveRecord;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
@@ -21,6 +23,18 @@ use yii\helpers\ArrayHelper;
  *
  * @property-read Tea[]       $teas
  */
+
+#[Schema(properties: [
+    new Property(property: 'id', type: 'integer'),
+    new Property(property: 'title', type: 'string'),
+    new Property(property: 'en_title', type: 'string'),
+    new Property(property: 'subtitle', type: 'string'),
+    new Property(property: 'en_subtitle', type: 'string'),
+    new Property(property: 'color', type: 'string'),
+    new Property(property: 'image', type: 'string'),
+    new Property(property: 'teas', type: 'string'),
+
+])]
 class TeaCollection extends AppActiveRecord
 {
     /**
@@ -39,6 +53,23 @@ class TeaCollection extends AppActiveRecord
         return [
             [['title', 'en_title'], 'required'],
             [['title', 'en_title', 'subtitle', 'en_subtitle', 'color', 'image'], 'string', 'max' => 255]
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    final public function fields(): array
+    {
+        return [
+            'id',
+            'title',
+            'en_title',
+            'subtitle',
+            'en_subtitle',
+            'color',
+            'image',
+            'teas'
         ];
     }
 

@@ -3,6 +3,8 @@
 namespace common\models;
 
 use common\models\AppActiveRecord;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
@@ -22,6 +24,15 @@ use yii\helpers\ArrayHelper;
  * @property string|null $image
  * @property string|null $status
  */
+
+#[Schema(properties: [
+    new Property(property: 'id', type: 'integer'),
+    new Property(property: 'title', type: 'string'),
+    new Property(property: 'date', type: 'datetime'),
+    new Property(property: 'description', type: 'string'),
+    new Property(property: 'text', type: 'string'),
+    new Property(property: 'image', type: 'string'),
+])]
 class News extends AppActiveRecord
 {
 
@@ -51,6 +62,23 @@ class News extends AppActiveRecord
             [['title', 'en_title', 'date'], 'required'],
             [['API_priority', 'date'], 'integer'],
             [['title', 'en_title', 'description', 'en_description', 'text', 'en_text', 'image', 'status'], 'string', 'max' => 255]
+        ];
+    }
+
+    final public function fields(): array
+    {
+        return [
+                'id',
+                'title',
+//                'en_title',
+//                'API_priority',
+                'date',
+                'description',
+//                'en_description',
+                'text',
+//                'en_text',
+                'image',
+//                'status',
         ];
     }
 

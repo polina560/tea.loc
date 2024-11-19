@@ -3,6 +3,8 @@
 namespace common\models;
 
 use common\models\AppActiveRecord;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
@@ -19,6 +21,13 @@ use yii\helpers\ArrayHelper;
  * @property int|null    $moderation_status Дата изменения
  * @property string|null $comment
  */
+
+#[Schema(properties: [
+    new Property(property: 'id', type: 'integer'),
+    new Property(property: 'name', type: 'string'),
+    new Property(property: 'email', type: 'string'),
+    new Property(property: 'message', type: 'string'),
+])]
 class Feedback extends AppActiveRecord
 {
     /**
@@ -50,6 +59,20 @@ class Feedback extends AppActiveRecord
             [['name', 'email', 'message'], 'required'],
             [['created_at', 'updated_at', 'moderation_status'], 'integer'],
             [['name', 'email', 'message', 'comment'], 'string', 'max' => 255]
+        ];
+    }
+
+    final public function fields(): array
+    {
+        return [
+                'id',
+                'name',
+                'email',
+                'message',
+//                'created_at',
+//                'updated_at',
+//                'moderation_status',
+//                'comment'
         ];
     }
 
