@@ -6,6 +6,7 @@ use common\models\AppActiveRecord;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "{{%tea}}".
@@ -91,6 +92,8 @@ class Tea extends AppActiveRecord
             'API_priority' => Yii::t('app', 'API Priority'),
         ];
     }
+
+
 
     final public function getCollection(): ActiveQuery
     {

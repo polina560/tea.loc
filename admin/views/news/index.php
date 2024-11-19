@@ -6,7 +6,6 @@ use admin\components\widgets\gridView\ColumnSelect2;
 use admin\modules\rbac\components\RbacHtml;
 use admin\widgets\sortableGridView\SortableGridView;
 use kartik\grid\SerialColumn;
-use yii\widgets\ListView;
 
 /**
  * @var $this         yii\web\View
@@ -47,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //            Column::widget(['attr' => 'en_text']),
 //            Column::widget(['attr' => 'image']),
 //            Column::widget(['attr' => 'status']),
-            ColumnSelect2::widget(['attr' => 'status','items' => \admin\enums\PublishedStatus::class, 'hideSearch' => true]),
+            ColumnSelect2::widget(['attr' => 'status','items' => \common\enums\PublishedStatus::class, 'hideSearch' => true]),
 
             ['class' => GroupedActionColumn::class]
         ]

@@ -23,7 +23,7 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'en_title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'API_priority')->textInput() ?>
+    <?= $form->field($model, 'API_priority')->widget(Select2::class, ['data' => \common\enums\PriorityAPI::indexedDescriptions(), 'hideSearch' => true]) ?>
 
     <?= $form->field($model, 'date')->widget(\admin\widgets\input\DatePicker::class) ?>
 
@@ -43,7 +43,7 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'status')->widget(
         Select2::class,
-        ['data' => \admin\enums\PublishedStatus::indexedDescriptions(), 'hideSearch' => true]) ?>
+        ['data' => \common\enums\PublishedStatus::indexedDescriptions(), 'hideSearch' => true]) ?>
 
     <div class="form-group">
         <?php if ($isCreate) {

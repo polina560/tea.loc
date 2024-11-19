@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'buy_button']),
             Column::widget(['attr' => 'shop_link']),
             Column::widget(['attr' => 'en_shop_link']),
-            Column::widget(['attr' => 'API_priority']),
+            Column::widget(['attr' => 'API_priority', 'items' => \common\enums\PriorityAPI::class]),
         ]
     ]) ?>
 

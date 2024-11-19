@@ -66,7 +66,8 @@ class TeaCollection extends AppActiveRecord
         foreach($items as $item){
             $results[] = [
                 'label' => $item->title,
-                'url' => UserUrl::setFilters(Tea::class, ['/tea/collection', 'id_collection' => $item->id] , ['data-pjax' => '0'])
+                'url' => UserUrl::setFilters(Tea::class, ['/tea/collection', 'id_collection' => $item->id]),
+                'data-pjax' => '0'
             ];
 
         }

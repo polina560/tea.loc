@@ -27,7 +27,7 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'moderation_status')->widget(
         Select2::class,
-        ['data' => \admin\enums\ModerationStatus::indexedDescriptions(), 'hideSearch' => true]) ?>
+        ['data' => \common\enums\ModerationStatus::indexedDescriptions(), 'hideSearch' => true]) ?>
 
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 

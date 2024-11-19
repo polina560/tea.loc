@@ -1,9 +1,6 @@
 <?php
 
-namespace admin\enums;
-
-use common\enums\DictionaryInterface;
-use common\enums\DictionaryTrait;
+namespace common\enums;
 
 enum PublishedStatus: int implements DictionaryInterface
 {

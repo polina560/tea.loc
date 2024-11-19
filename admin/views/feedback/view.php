@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'message']),
             Column::widget(['attr' => 'created_at', 'format' => 'datetime']),
             Column::widget(['attr' => 'updated_at', 'format' => 'datetime']),
-            Column::widget(['attr' => 'moderation_status', 'items' => \admin\enums\ModerationStatus::class]),
+            Column::widget(['attr' => 'moderation_status', 'items' => \common\enums\ModerationStatus::class]),
 //            [
 //                'attribute'=>'moderation_status',
 //                'value'=>function($model){

@@ -15,8 +15,9 @@ use yii\widgets\ListView;
  * @var $model        common\models\Tea
  */
 
-$this->title = Yii::t('app', 'Teas');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Collections'), 'url' => ['/tea-collection/index']];
+$this->title = Yii::t('app', 'TeaCollect');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Tea Collections'), 'url' => ['/tea-collection/index']];
+$this->params['breadcrumbs'][] = ['label' => $searchModel->collection->title, 'url' => ['/tea-collection/view', 'id' => $searchModel->id_collection]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tea-collection">

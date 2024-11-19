@@ -1,6 +1,7 @@
 <?php
 
 use admin\widgets\ckfinder\CKFinderInputFile;
+use admin\widgets\input\Select2;
 use common\widgets\AppActiveForm;
 use kartik\icons\Icon;
 use yii\bootstrap5\Html;
@@ -58,7 +59,7 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'en_shop_link')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'API_priority')->textInput() ?>
+    <?= $form->field($model, 'API_priority')->widget(Select2::class, ['data' => \common\enums\PriorityAPI::indexedDescriptions(), 'hideSearch' => true]) ?>
 
     <div class="form-group">
         <?php if ($isCreate) {

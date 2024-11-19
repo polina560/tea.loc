@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             Column::widget(['attr' => 'subtitle']),
 //            Column::widget(['attr' => 'en_subtitle']),
             Column::widget(['attr' => 'color']),
+//            \kartik\color\ColorInput::widget(['model' => $searchModel, 'attribute' => 'color']),
 //            Column::widget(['attr' => 'image']),
 
             ['class' => GroupedActionColumn::class]

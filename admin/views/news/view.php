@@ -44,14 +44,14 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(),
             Column::widget(['attr' => 'title']),
             Column::widget(['attr' => 'en_title']),
-            Column::widget(['attr' => 'API_priority']),
+            Column::widget(['attr' => 'API_priority', 'items' => \common\enums\PriorityAPI::class]),
             Column::widget(['attr' => 'date', 'format' => 'datetime']),
             Column::widget(['attr' => 'description']),
             Column::widget(['attr' => 'en_description']),
             Column::widget(['attr' => 'text']),
             Column::widget(['attr' => 'en_text']),
             ColumnImage::widget(['attr' => 'image']),
-            Column::widget(['attr' => 'status', 'items' => \admin\enums\PublishedStatus::class]),
+            Column::widget(['attr' => 'status', 'items' => \common\enums\PublishedStatus::class]),
 
         ]
     ]) ?>

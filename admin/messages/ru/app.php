@@ -208,7 +208,7 @@ return [
     'Buy Button' => 'Кнопка купить',
     'Shop Link' => 'Ссылка',
     'English Shop Link' => 'Английская ссылка',
-    
+
 
 
 

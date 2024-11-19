@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             Column::widget(['attr' => 'message', 'editable' => false]),
 //            ColumnDate::widget(['attr' => 'created_at', 'searchModel' => $searchModel, 'editable' => false]),
 //            ColumnDate::widget(['attr' => 'updated_at', 'searchModel' => $searchModel, 'editable' => false]),
-            ColumnSelect2::widget(['attr' => 'moderation_status','items' => \admin\enums\ModerationStatus::class, 'hideSearch' => true]),
+            ColumnSelect2::widget(['attr' => 'moderation_status','items' => \common\enums\ModerationStatus::class, 'hideSearch' => true]),
 //            [
 //                'attribute'=>'moderation_status',
 //                'value'=>function($model){
