@@ -5,7 +5,7 @@ use admin\models\UserAdminSearch;
 use admin\modules\modelExportImport\models\ModelImportLogSearch;
 use admin\modules\rbac\components\RbacNav;
 use common\components\helpers\UserUrl;
-use common\models\{ExportListSearch, TextSearch};
+use common\models\{ExportListSearch, FeedbackSearch, News, Tea, TeaCollection, TeaCollectionSearch, TextSearch};
 use common\modules\log\Log;
 use common\modules\mail\models\{MailingLogSearch, MailingSearch, MailTemplateSearch};
 use common\modules\notification\widgets\NotificationBell;
@@ -39,22 +39,24 @@ if (!Yii::$app->user->isGuest) {
     /** @var Log $logModule */
     $logModule = Yii::$app->getModule('log');
     $menuItems = [
-        ['label' => Icon::show('chart-bar') . 'Статистика', 'url' => ['/statistic/index']],
+
         [
-            'label' => Icon::show('users') . 'Пользователи',
-            'url' => UserUrl::setFilters(UserSearch::class, ['/user/user/index']),
-            'visible' => (bool)Yii::$app->getModule('user')
+            'label' => Yii::t('app', 'Tea Collections'),
+            'items' => TeaCollection::viewMenuItems(),
         ],
         [
-            'label' => Icon::show('file-alt') . 'Контент',
-            'items' => [
-                ['label' => Icon::show('wrench') . 'Публичные параметры', 'url' => ['/param/index']],
-                [
-                    'label' => Icon::show('align-justify') . 'Тексты',
-                    'url' => UserUrl::setFilters(TextSearch::class, ['/text/index'])
-                ]
-            ]
+            'label' => Yii::t('app', 'Tea'),
+            'url' => UserUrl::setFilters(Tea::class, ['/tea/index'])
         ],
+        [
+            'label' => Yii::t('app', 'News'),
+            'url' => UserUrl::setFilters(News::class, ['/news/index'])
+        ],
+        [
+            'label' => Yii::t('app', 'Feedbacks'),
+            'url' => UserUrl::setFilters(FeedbackSearch::class, ['/feedback/index'])
+        ],
+
         [
             'label' => Icon::show('cogs') . 'Управление',
             'items' => [
@@ -76,41 +78,48 @@ if (!Yii::$app->user->isGuest) {
                     'label' => Icon::show('user-shield') . 'Администраторы',
                     'url' => UserUrl::setFilters(UserAdminSearch::class, ['/user-admin/index'])
                 ],
-                '<hr>',
                 [
-                    'label' => Icon::show('envelope-open') . 'Шаблоны почты',
-                    'url' => ['/mail/template/index'],
-                    'visible' => (bool)Yii::$app->getModule('mail')
+                    'label' => Icon::show('users') . 'Пользователи',
+                    'url' => UserUrl::setFilters(UserSearch::class, ['/user/user/index']),
+                    'visible' => (bool)Yii::$app->getModule('user')
                 ],
-                [
-                    'label' => Icon::show('inbox') . 'Лог отправки писем',
-                    'url' => UserUrl::setFilters(MailingLogSearch::class, ['/mail/mailing-log/index']),
-                    'visible' => (bool)Yii::$app->getModule('mail')
-                ],
-                [
-                    'label' => Icon::show('file-import') . 'Перенос контента на удаленный сервер',
-                    'url' => ['/model-export-import/default/index'],
-                    'visible' => (bool)Yii::$app->getModule('model-export-import')?->isExportEnabled
-                ],
-                [
-                    'label' => Icon::show('file-import') . 'Лог импорта данных моделей',
-                    'url' => UserUrl::setFilters(
-                        ModelImportLogSearch::class,
-                        ['/model-export-import/model-import-log/index']
-                    ),
-                    'visible' => (bool)Yii::$app->getModule('model-export-import')
-                ],
-                [
-                    'label' => Icon::show('file-download') . Yii::t('app', 'Export Lists'),
-                    'url' => UserUrl::setFilters(
-                        ExportListSearch::class,
-                        ['/export-list/index']
-                    )
-                ],
-                ['label' => Icon::show('folder') . 'Файловый менеджер', 'url' => ['/site/file-manager']],
-                ['label' => Icon::show('info') . 'Информация о хостинге', 'url' => ['/site/info']]
+//                '<hr>',
+//                [
+//                    'label' => Icon::show('envelope-open') . 'Шаблоны почты',
+//                    'url' => ['/mail/template/index'],
+//                    'visible' => (bool)Yii::$app->getModule('mail')
+//                ],
+//                [
+//                    'label' => Icon::show('inbox') . 'Лог отправки писем',
+//                    'url' => UserUrl::setFilters(MailingLogSearch::class, ['/mail/mailing-log/index']),
+//                    'visible' => (bool)Yii::$app->getModule('mail')
+//                ],
+//                [
+//                    'label' => Icon::show('file-import') . 'Перенос контента на удаленный сервер',
+//                    'url' => ['/model-export-import/default/index'],
+//                    'visible' => (bool)Yii::$app->getModule('model-export-import')?->isExportEnabled
+//                ],
+//                [
+//                    'label' => Icon::show('file-import') . 'Лог импорта данных моделей',
+//                    'url' => UserUrl::setFilters(
+//                        ModelImportLogSearch::class,
+//                        ['/model-export-import/model-import-log/index']
+//                    ),
+//                    'visible' => (bool)Yii::$app->getModule('model-export-import')
+//                ],
+//                [
+//                    'label' => Icon::show('file-download') . Yii::t('app', 'Export Lists'),
+//                    'url' => UserUrl::setFilters(
+//                        ExportListSearch::class,
+//                        ['/export-list/index']
+//                    )
+//                ],
+//                ['label' => Icon::show('folder') . 'Файловый менеджер', 'url' => ['/site/file-manager']],
+//                ['label' => Icon::show('info') . 'Информация о хостинге', 'url' => ['/site/info']]
             ]
-        ]
+        ],
+//        ['label' => Icon::show('chart-bar') . 'Статистика', 'url' => ['/statistic/index']],
+
     ];
     $menuItems[] = Html::tag('div', null, ['class' => 'divider-vertical']);
     $menuItems[] = Html::tag('div', null, ['class' => 'dropdown-divider']);

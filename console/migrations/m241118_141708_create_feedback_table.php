@@ -20,6 +20,7 @@ class m241118_141708_create_feedback_table extends Migration
             'created_at' => $this->integer()->comment('Дата создания'),
             'updated_at' => $this->integer()->comment('Дата изменения'),
             'moderation_status' => $this->integer()->comment('Дата изменения'),
+            'comment' => $this->string(),
             'PRIMARY KEY(id)'
         ]);
     }
