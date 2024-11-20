@@ -10,10 +10,9 @@ use yii\bootstrap5\Html;
  */
 
 $this->title = Yii::t('app', 'Create Tea');
-$this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', 'Tea'),
-    'url' => UserUrl::setFilters(TeaSearch::class)
-];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Tea Collections'), 'url' => ['/tea-collection/index']];
+$this->params['breadcrumbs'][] = ['label' => $model->collection->title, 'url' => ['/tea-collection/view', 'id' => $model->id_collection]];
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tea-create">

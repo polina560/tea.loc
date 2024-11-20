@@ -15,9 +15,8 @@ use yii\widgets\ListView;
  * @var $model        common\models\Tea
  */
 
-$this->title = Yii::t('app', 'TeaCollect');
+$this->title =  $searchModel->collection->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app','Tea Collections'), 'url' => ['/tea-collection/index']];
-$this->params['breadcrumbs'][] = ['label' => $searchModel->collection->title, 'url' => ['/tea-collection/view', 'id' => $searchModel->id_collection]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tea-collection">
@@ -39,21 +38,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => SerialColumn::class],
 
             Column::widget(),
-//            Column::widget(['attr' => 'title']),
+            Column::widget(['attr' => 'title']),
 //            Column::widget(['attr' => 'en_title']),
-            Column::widget(['attr' => 'id_collection', 'viewAttr' => 'collection.title']),
+//            Column::widget(['attr' => 'id_collection', 'viewAttr' => 'collection.title']),
             Column::widget(['attr' => 'subtitle']),
 //            Column::widget(['attr' => 'en_subtitle']),
-            Column::widget(['attr' => 'description']),
+//            Column::widget(['attr' => 'description']),
 //            Column::widget(['attr' => 'en_description']),
 //            Column::widget(['attr' => 'background_image']),
 //            Column::widget(['attr' => 'image']),
 //            Column::widget(['attr' => 'en_image']),
-//            Column::widget(['attr' => 'weight']),
+            Column::widget(['attr' => 'weight']),
 //            Column::widget(['attr' => 'en_weight']),
-//            Column::widget(['attr' => 'brewing_temperature']),
+            Column::widget(['attr' => 'brewing_temperature']),
 //            Column::widget(['attr' => 'en_brewing_temperature']),
-//            Column::widget(['attr' => 'brewing_time']),
+            Column::widget(['attr' => 'brewing_time']),
 //            Column::widget(['attr' => 'en_brewing_time']),
 //            Column::widget(['attr' => 'buy_button']),
 //            Column::widget(['attr' => 'shop_link']),

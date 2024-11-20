@@ -13,10 +13,8 @@ use yii\widgets\DetailView;
  */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', 'Tea'),
-    'url' => UserUrl::setFilters(TeaSearch::class)
-];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Tea Collections'), 'url' => ['/tea-collection/index']];
+$this->params['breadcrumbs'][] = ['label' => $model->collection->title, 'url' => ['/tea/collection', 'id_collection' => $model->id_collection]];
 $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
 ?>
 <div class="tea-view">

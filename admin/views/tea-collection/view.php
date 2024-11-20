@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = RbacHtml::encode($this->title);
             Column::widget(['attr' => 'en_title']),
             Column::widget(['attr' => 'subtitle']),
             Column::widget(['attr' => 'en_subtitle']),
-            Column::widget(['attr' => 'color']),
+            Column::widget(['attr' => 'color', 'format' => 'color']),
             ColumnImage::widget(['attr' => 'image']),
         ]
     ]) ?>

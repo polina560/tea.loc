@@ -174,7 +174,8 @@ return [
 
     'Feedback' => 'Обратная связь',
     'News' => 'Новости',
-    'Tea Collections' => 'Чайная коллекция',
+    'Tea Collections' => 'Чайные коллекции',
+    'Tea Collection' => 'Чайная коллекция',
     'All Collections' => 'Все чайные коллекции',
     'Tea' => 'Чай',
     'Create Tea' => 'Добавить чай',

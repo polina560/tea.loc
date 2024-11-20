@@ -2,6 +2,7 @@
 
 use admin\components\GroupedActionColumn;
 use admin\components\widgets\gridView\Column;
+use admin\components\widgets\gridView\ColumnDate;
 use admin\components\widgets\gridView\ColumnSelect2;
 use admin\modules\rbac\components\RbacHtml;
 use admin\widgets\sortableGridView\SortableGridView;
@@ -39,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             Column::widget(['attr' => 'title', 'editable' => false]),
 //            Column::widget(['attr' => 'en_title']),
 //            Column::widget(['attr' => 'API_priority']),
-            Column::widget(['attr' => 'date', 'format' => 'datetime', 'editable' => false]),
+            ColumnDate::widget(['attr' => 'date', 'searchModel' => $searchModel, 'withTime' => false]),
             Column::widget(['attr' => 'description']),
 //            Column::widget(['attr' => 'en_description']),
 //            Column::widget(['attr' => 'text']),

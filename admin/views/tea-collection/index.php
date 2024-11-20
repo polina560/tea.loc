@@ -5,6 +5,8 @@ use admin\components\widgets\gridView\Column;
 use admin\modules\rbac\components\RbacHtml;
 use admin\widgets\sortableGridView\SortableGridView;
 use kartik\grid\SerialColumn;
+use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ListView;
 
 /**
@@ -36,12 +38,24 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => SerialColumn::class],
 
             Column::widget(),
-            Column::widget(['attr' => 'title']),
+//            \admin\components\widgets\gridView\ColumnSelect2::widget(['attr' => 'title', 'pathLink' => 'tea', 'editable' => false]),
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{tea}',
+                'buttons' => [
+                    'tea' => function ($url, $model, $key) {
+                        return Html::a($model->title, Url::toRoute(['tea/collection', 'id_collection' => $model->id]), ['data-pjax' => '0']);
+//                            Html::a('Комнаты', ['room/index', 'id_apartment' => $model->id]);
+//                            Html::a('Комнаты', Url::to(['room/index', 'id_apartment' => $model->id]));
+                    },
+                ],
+            ],
+
 //            Column::widget(['attr' => 'en_title']),
             Column::widget(['attr' => 'subtitle']),
 //            Column::widget(['attr' => 'en_subtitle']),
-            Column::widget(['attr' => 'color']),
-//            \kartik\color\ColorInput::widget(['model' => $searchModel, 'attribute' => 'color']),
+            Column::widget(['attr' => 'color', 'format' => 'color', 'editable' => false]),
+//            \kartik\color\ColorInput::widget(['model' => $searchModel, 'att ribute' => 'color']),
 //            Column::widget(['attr' => 'image']),
 
             ['class' => GroupedActionColumn::class]

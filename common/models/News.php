@@ -60,8 +60,8 @@ class News extends AppActiveRecord
     {
         return [
             [['title', 'en_title', 'date'], 'required'],
-            [['API_priority', 'date'], 'integer'],
-            [['title', 'en_title', 'description', 'en_description', 'text', 'en_text', 'image', 'status'], 'string', 'max' => 255]
+            [['API_priority', 'date', 'status'], 'integer'],
+            [['title', 'en_title', 'description', 'en_description', 'text', 'en_text', 'image'], 'string', 'max' => 255]
         ];
     }
 

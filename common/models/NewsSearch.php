@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\helpers\SearchQueryHelper;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -17,8 +18,8 @@ final class NewsSearch extends News
     public function rules(): array
     {
         return [
-            [['id', 'API_priority', 'date'], 'integer'],
-            [['title', 'en_title', 'description', 'en_description', 'text', 'en_text', 'image', 'status'], 'safe']
+            [['id', 'API_priority'], 'integer'],
+            [['title', 'en_title', 'description', 'en_description', 'text', 'en_text', 'image', 'status', 'date'], 'safe']
         ];
     }
 
@@ -55,8 +56,7 @@ final class NewsSearch extends News
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'API_priority' => $this->API_priority,
-            'date' => $this->date,
+            'API_priority' => $this->API_priority
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
@@ -67,6 +67,8 @@ final class NewsSearch extends News
             ->andFilterWhere(['like', 'en_text', $this->en_text])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'status', $this->status]);
+
+        SearchQueryHelper::filterDataRange(['date'], $this, $query);
 
         return $dataProvider;
     }

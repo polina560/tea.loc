@@ -72,7 +72,7 @@ final class TeaController extends AdminController
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render(
-            'index',
+            'collection',
             ['searchModel' => $searchModel, 'dataProvider' => $dataProvider, 'model' => $model]
         );
     }

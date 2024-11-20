@@ -5,8 +5,11 @@ namespace admin\controllers;
 use admin\controllers\AdminController;
 use admin\modules\rbac\components\RbacHtml;
 use common\components\helpers\UserUrl;
+use common\enums\ModerationStatus;
+use common\enums\PublishedStatus;
 use common\models\Feedback;
 use common\models\FeedbackSearch;
+use common\models\News;
 use kartik\grid\EditableColumnAction;
 use Throwable;
 use Yii;
@@ -154,7 +157,12 @@ final class FeedbackController extends AdminController
         return [
             'change' => [
                 'class' => EditableColumnAction::class,
-                'modelClass' => Feedback::class
+                'modelClass' => Feedback::class,
+                'outputValue' => static fn(Feedback $feedback, string $attr) => match ($attr) {
+                    'moderation_status' => ModerationStatus::from($feedback->$attr)->coloredDescription(),
+                    default => $feedback->$attr
+                }
+
             ]
         ];
     }

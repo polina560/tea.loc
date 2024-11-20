@@ -23,7 +23,7 @@ class m241118_141635_create_news_table extends Migration
             'text' => $this->string(),
             'en_text' => $this->string(),
             'image' => $this->string(),
-            'status' => $this->string(),
+            'status' => $this->integer(),
             'PRIMARY KEY(id)'
 
 

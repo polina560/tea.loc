@@ -40,6 +40,7 @@ use yii\web\UploadedFile;
 
 #[Schema(properties: [
     new Property(property: 'id', type: 'integer'),
+    new Property(property: 'id_collection', type: 'integer'),
     new Property(property: 'title', type: 'string'),
     new Property(property: 'subtitle', type: 'string'),
     new Property(property: 'image', type: 'string'),
@@ -104,9 +105,12 @@ class Tea extends AppActiveRecord
     {
         return [
                 'id',
+                'id_collection' => function () {
+                    $item = TeaCollection::find()->where(['id' => $this->id_collection])->one();
+                    return $item->title;
+                },
                 'title',
 //                'en_title',
-               'id_collection',
                 'subtitle',
 //                'en_subtitle',
 //                'description',

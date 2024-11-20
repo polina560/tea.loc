@@ -5,6 +5,7 @@ namespace admin\controllers;
 use admin\controllers\AdminController;
 use admin\modules\rbac\components\RbacHtml;
 use common\components\helpers\UserUrl;
+use common\enums\PublishedStatus;
 use common\models\News;
 use common\models\NewsSearch;
 use kartik\grid\EditableColumnAction;
@@ -154,7 +155,12 @@ final class NewsController extends AdminController
         return [
             'change' => [
                 'class' => EditableColumnAction::class,
-                'modelClass' => News::class
+                'modelClass' => News::class,
+                'outputValue' => static fn(News $news, string $attr) => match ($attr) {
+                    'date' => Yii::$app->formatter->asDate($news->$attr),
+                    'status' => PublishedStatus::from($news->$attr)->coloredDescription(),
+                    default => $news->$attr
+                }
             ]
         ];
     }
